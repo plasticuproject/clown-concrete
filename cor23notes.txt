@@ -1,0 +1,26 @@
+# Pypi server
+
+plasticuproject@UBOX:~$ cat .pypirc 
+[distutils]
+index-servers =
+  local
+
+[local]
+repository: http://localhost:8081
+username: joey
+password: fart
+
+htpasswd -sc htpasswd.txt <some_username>
+pypi-server run -p 8080 -P htpasswd.txt --hash-algo sha256 ./packages &
+python setup.py sdist register -r local upload -r local
+python setup.py bdist_wheel --universal register -r fakepypi upload -r fakepypi
+
+
+openssl genrsa -out private.key 1024
+openssl req -new -x509 -key private.key -out publickey.cer -days 365
+
+sudo openssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout private.key -out publickey.crt
+
+command=/home/app/venv/bin/gunicorn -w 1 -t 60 --certfile=/home/app/certs/publickey.crt --keyfile=/home/app/certs/private.key -b 0.0.0.0:8000 app:app
+
+./hashcat.bin -a 0 -m 101 "{SHA}3hAn1oBtQlhHSPdnM9VanKHEHzo=" /media/plasticuproject/STORAGE/nicieiris/rockyou.txt

@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+
+{% block metatags %}
+<title>Clown Concrete | About</title>
+<meta name="description" content="Explain minimal.">
+{% endblock %}
+
+{% block contents %}
+<div class="container">
+    <div>
+        <ol class="breadcrumb small">
+            <li class="breadcrumb-item"><a href="{{url_for('index')}}">Home</a></li>
+            <li class="breadcrumb-item active" aria-current="page">About</li>
+        </ol>
+    </div>
+
+    <h1>About this site</h1>
+    <p class="lead">For maximum security this site and all it's application dependencies are updated every 60 seconds.</p>
+    <br>
+    <div class="container left-text">
+        <p>
+            The calculators on this site all use the <i>calculator-wrapper</i> python library to perform calculations.
+            <i>calculator-wrapper</i> is a locally built/managed interface for the <i>concrete-calculator</i> python library
+            pulled from <i>FakePyPi</i>. Both of these libraries are open-source and download links are provided below.
+        </p>
+    </div>
+    <br>
+    <br>
+    <p>
+        Download the <i>calculator-wrapper</i> python library source code <a href="{{url_for('c_w_source')}}" target="_blank">here</a><br>
+        Download the <i>concrete-calculator</i> python library source code <a href="{{url_for('c_c_source')}}" target="_blank">here</a><br>
+    </p>
+
+</div>
+{% endblock %}

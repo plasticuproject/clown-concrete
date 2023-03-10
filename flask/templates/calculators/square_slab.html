@@ -1,0 +1,54 @@
+{% extends "home/index.html" %}
+
+{% block metatags %}
+<title>Clown Concrete</title>
+<meta name="description" content="Clown Concrete">
+{% endblock %}
+
+{% block breadcrumb %}
+    <div>
+        <ol class="breadcrumb small">
+            <li class="breadcrumb-item"><a href="{{url_for('index')}}">Home</a></li>
+            <li class="breadcrumb-item active" aria-current="page">Calculators / Square Slab</li>
+        </ol>
+    </div>
+{% endblock %}
+
+{% block calculator %}
+    <br>
+    <form method="POST" action="{{url_for('calculate', structure='square_slab')}}">
+        <input type="hidden" name="_csrf_token" value="{{ csrf_token() }}">
+        <div class="card mx-auto form-card-width">
+            <div class="card-body">
+                <h5 class="card-title">Square Slab</h5>
+                <div class="input-group mb-3">
+                    <span class="input-group-text">Length in feet</span>
+                    <input type="text" class="form-control form-control-text" name=length aria-label="Length in feet" required>
+                    <span class="input-group-text"></span>
+                </div>
+                <div class="input-group mb-3">
+                    <span class="input-group-text">Width in feet</span>
+                    <input type="text" class="form-control form-control-text" name=width aria-label="Width in feet" required>
+                    <span class="input-group-text"></span>
+                </div>
+                <div class="input-group mb-3">
+                    <span class="input-group-text">Depth in feet</span>
+                    <input type="text" class="form-control form-control-text" name=depth aria-label="Depth in feet" required>
+                    <span class="input-group-text"></span>
+                </div>
+                <div>
+                    <select class="form-select mb-3" name=units aria-label="Units select">
+                        <option value="ft" selected>Return Cubic Feet</option>
+                        <option value="yd">Return Cubic Yards</option>
+                        <option value="m">Return Cubic Meters</option>
+                    </select>
+                </div>
+                <div class="d-grid gap-2 col-6 mx-auto" id="button">
+                    <button class="btn btn-primary" type="submit">Calculate</button>
+                </div>
+            </div>
+        </div>
+    </form>
+
+{% endblock %}
+

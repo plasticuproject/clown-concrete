@@ -1,0 +1,67 @@
+@charset "UTF-8";
+
+main > .container {
+    padding: 70px 10px 0px 10px;
+    text-align: center;
+
+}
+body {
+  background-image: url("/static/images/clown-light.png");
+}
+
+.left-text {
+    text-align: left;
+}
+
+.footer {
+    background-color: #0d6efd;
+}
+
+.navbar {
+    background-color: #dc3545;
+}
+
+.d-inline-block {
+    position: relative;
+    top: -2px;
+}
+
+.modal-header {
+    background-color: #0d6efd;
+}
+
+.modal-title {
+    font-weight: bold;
+}
+
+.text-modal {
+    color: red;
+}
+
+.modal-body {
+    word-wrap: break-word;
+}
+
+.index-title {
+    margin-top:37px;
+}
+
+.structure-button {
+    width: 20rem;
+}
+
+.dropdown-menu {
+    width: 20rem;
+}
+
+.form-card-width {
+    width: 20rem;
+}
+
+.form-control-text {
+    text-align: right;
+}
+
+/*.navbar-toggler-icon {
+    background-image: url("/static/images/hamburger.svg");
+}*/

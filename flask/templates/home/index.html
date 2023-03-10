@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+
+{% block metatags %}
+<title>Clown Concrete</title>
+<meta name="description" content="Clown Concrete">
+{% endblock %}
+
+{% block contents %}
+    <div class="container">
+        {% block breadcrumb %}
+        {% endblock %}
+    <h1 class="index-title">Concrete Calculator</h1>
+    <p class="lead">Calculate volumes needed for various structures.</p>
+    {% if clown %}
+        <p> <img src="{{url_for('static', filename='images/worker.jpg')}}" class="img-fluid rounded" alt="Clown Worker"> </p>
+    {% endif %}
+    <br>
+    <div class="dropdown">
+        <a class="btn btn-secondary dropdown-toggle structure-button" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Select Structure
+        </a>
+
+        <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="{{url_for('square_slab')}}">Square Slab</a></li>
+            <li><a class="dropdown-item" href="{{url_for('wall')}}">Wall</a></li>
+            <li><a class="dropdown-item" href="{{url_for('footer')}}">Footer</a></li>
+            <li><a class="dropdown-item" href="{{url_for('square_column')}}">Square Column</a></li>
+            <li><a class="dropdown-item" href="{{url_for('round_slab')}}">Round Slab</a></li>
+            <li><a class="dropdown-item" href="{{url_for('round_column')}}">Round Column</a></li>
+            <li><a class="dropdown-item" href="{{url_for('steps')}}">Steps</a></li>
+            <li><a class="dropdown-item" href="{{url_for('curbs_and_gutters')}}">Curbs and Gutters</a></li>
+        </ul>
+    </div>
+
+    <!-- Start Main content -->
+    {% block calculator %}
+    {% endblock %}
+
+    <!-- End Main content -->
+    <br>
+    <p>Learn more <a href="{{url_for('about')}}">about</a> this site.</p>
+    </div>
+
+{% endblock %}

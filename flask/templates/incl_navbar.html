@@ -1,0 +1,22 @@
+<!-- Fixed navbar -->
+<nav class="navbar navbar-expand-md navbar-dark fixed-top shadow-sm">
+    <div class="container-fluid">
+        <a class="navbar-brand fw-bold" href="{{url_for('index')}}">
+            <img src="{{url_for('static', filename='images/clown.png')}}" alt="" height="30" width="41" class="d-inline-block">
+            Clown Concrete
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav ms-auto mb-2 mb-md-0">
+                <li class="nav-item">
+                    <a class="nav-link {{mc['home']}}" aria-current="page" href="{{url_for('index')}}">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link {{mc['about']}}" href="{{url_for('about')}}">About</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>

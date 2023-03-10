@@ -1,0 +1,24 @@
+{% with messages = get_flashed_messages() %}
+    {% if messages %}
+        <div class="modal fade" id="volumeModal" tabindex="-1" role="dialog" aria-labelledby="Modal containg volume calculation" aria-hidden="true">
+            <div class="modal-dialog modal-lg shadow" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <span class="modal-title text-white">Calculated Volume</span>
+                    </div>
+                    <div data-nosnippet class="modal-body">
+                        {% for message in messages %}
+                        <h5 class="text-modal text-center">{{ message }}</h5>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <script nonce="{{ csp_nonce() }}">
+            var myModal = new bootstrap.Modal(document.getElementById('volumeModal'),
+                {backdrop: true, keyboard: false});
+            myModal.show();
+        </script>
+    {% endif %}
+{% endwith %}

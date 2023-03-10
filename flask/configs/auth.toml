@@ -1,0 +1,6 @@
+[http-basic.fakepypi]
+username = "joey"
+password = "concretejungle"
+
+[certificates.fakepypi]
+cert = "/home/app/certs/publickey.crt"

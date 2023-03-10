@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en" class="h-100">
+	<head>
+		<!-- set the encoding of your site -->
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<link rel="icon" href="{{url_for('static',filename='images/clown.png')}}" />
+		{% block metatags %}
+        {% endblock %}
+
+		<!-- Bootstrap 5 style css-->
+        <link nonce="{{ csp_nonce() }}"
+                href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" 
+		        integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" 
+			    crossorigin="anonymous">
+
+		<!-- Custom styles for this template -->
+		<link href="{{ url_for('static', filename='css/style.css') }}" rel="stylesheet">
+
+	</head>
+	<body class="d-flex flex-column h-100">
+		
+		<header id="pageHeader" class="position-absolute w-100 bg-white">
+			<!-- Navbar -->
+			{% include "incl_navbar.html" %}
+		</header>
+		
+		<main class="flex-shrink-0">
+		<!-- Start Main content -->
+		{% block contents %}
+		{% endblock %}
+		<!-- End Main content -->
+		</main>	
+		
+		<footer class="footer mt-auto py-3">
+		<!-- Footer -->
+		{% include "incl_footer.html" %}
+		</footer>
+
+		<!-- Bootstrap 5 JavaScript -->
+        <script nonce="{{ csp_nonce() }}"
+                src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" 
+			    integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" 
+                crossorigin="anonymous"></script>
+
+        {% include "modal.html" %}
+	</body>
+</html>
