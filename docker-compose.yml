@@ -12,6 +12,7 @@ services:
       - ./nginx/default.conf:/tmp/default.conf
     environment: 
       - FLASK_SERVER_ADDR=flask-app:8000
+      - PYPI_SERVER_ADDR=pypiserver-authenticated:42425
     ports:
       - '42424:443'
       - '42425:42425'
