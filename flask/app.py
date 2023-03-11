@@ -2,16 +2,17 @@
 
 from werkzeug.exceptions import NotFound, InternalServerError
 from werkzeug.wrappers import Response
+from flask_seasurf import SeaSurf  # type: ignore
+from flask_talisman import Talisman  # type: ignore
 from flask import (Flask, request, render_template, send_from_directory, flash,
                    redirect, url_for)
-from flask_seasurf import SeaSurf
-from flask_talisman import Talisman
 from layout_utils import set_menu
 
+# Stupid hack to stabilize challenge
 try:
     from calculator_wrapper import Calculator
 except ImportError:
-    from backup_calculator_wrapper import Calculator
+    from backup_calculator_wrapper import Calculator  # type: ignore
 
 app = Flask(__name__)
 app.secret_key = b'_5#y2L"F4Q8z\n\xec]/'

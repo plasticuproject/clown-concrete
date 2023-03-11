@@ -1,9 +1,9 @@
 "__init__.py"
 
 from typing import Union
-from concrete_calculator import (UnitConverter, ConcreteStructureData)
-from concrete_calculator import (RoundSlabConcreteCalculator)
-from concrete_calculator import (SquareSlabConcreteCalculator)
+from .concrete import (UnitConverter, ConcreteStructureData)
+from .concrete import (RoundSlabConcreteCalculator)
+from .concrete import (SquareSlabConcreteCalculator)
 
 
 class Calculator:

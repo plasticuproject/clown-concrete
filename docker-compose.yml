@@ -26,6 +26,8 @@ services:
     restart: always
     networks:
       - no-internet
+    environment:
+      - NGINX_SERVER_ADDR=nginx-proxy:42425
     depends_on:
       - pypiserver-authenticated
     command: supervisord

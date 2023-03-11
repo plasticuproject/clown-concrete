@@ -10,13 +10,6 @@ packages = [{include = "calculator_wrapper"}]
 [tool.poetry.dependencies]
 python = "^3.8"
 
-[[tool.poetry.source]]
-name = "fakepypi"
-url = "https://clownconcrete_nginx-proxy_1:42425"
-default = false
-secondary = true
-
-
 [build-system]
 requires = ["poetry-core"]
 build-backend = "poetry.core.masonry.api"
