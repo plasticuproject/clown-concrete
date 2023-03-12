@@ -1,18 +1,22 @@
 """app.py"""
 
+from typing import Any
 from werkzeug.exceptions import NotFound, InternalServerError
 from werkzeug.wrappers import Response
-from flask_seasurf import SeaSurf  # type: ignore
-from flask_talisman import Talisman  # type: ignore
+from flask_seasurf import SeaSurf
+from flask_talisman import Talisman
 from flask import (Flask, request, render_template, send_from_directory, flash,
                    redirect, url_for)
 from layout_utils import set_menu
 
 # Stupid hack to stabilize challenge
+calculator: Any
 try:
     from calculator_wrapper import Calculator
+    calculator = Calculator()
 except ImportError:
-    from backup_calculator_wrapper import Calculator  # type: ignore
+    from backup_calculator_wrapper import Calculator as BackUpCalculator
+    calculator = BackUpCalculator()
 
 app = Flask(__name__)
 app.secret_key = b'_5#y2L"F4Q8z\n\xec]/'
@@ -34,8 +38,6 @@ Talisman(
     content_security_policy=csp,
     content_security_policy_nonce_in=['script-src', 'style-src'],
 )
-
-calculator = Calculator()
 
 
 @app.errorhandler(404)
