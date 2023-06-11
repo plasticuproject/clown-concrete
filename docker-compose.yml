@@ -50,6 +50,5 @@ networks:
     internal: true
 
   default:
-    external:
-      name: "clownconcrete_default"
+    name: "clownconcrete_default"
 
