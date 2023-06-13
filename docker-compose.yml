@@ -37,12 +37,12 @@ services:
     networks:
       - no-internet
     volumes:
-      - ./auth/htpasswd:/data/htpasswd
+      - ./auth/htpasswd:/data/.htpasswd
       - ./packages/concrete_calculator-1.9.9.9.9.9.9.9.9.9-py2.py3-none-any.whl:/data/packages/concrete_calculator-1.9.9.9.9.9.9.9.9.9-py2.py3-none-any.whl
       - ./pypi/_app.py:/usr/local/lib/python3.8/site-packages/pypiserver/_app.py
       - ./pypi/welcome.html:/usr/local/lib/python3.8/site-packages/pypiserver/welcome.html
       - ./pypi/check:/data/check
-    command: run --disable-fallback -P /data/htpasswd -p 42425 --hash-algo sha256 -a update,download,list /data/packages
+    command: run --disable-fallback -P /data/.htpasswd -p 42425 --hash-algo sha256 -a update,download,list /data/packages
 
 networks:
   no-internet:
