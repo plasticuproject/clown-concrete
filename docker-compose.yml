@@ -33,7 +33,7 @@ services:
     command: supervisord
 
   pypiserver-authenticated:
-    image: pypiserver/pypiserver:latest
+    image: pypiserver/pypiserver:v1.5.1
     networks:
       - no-internet
     volumes:
