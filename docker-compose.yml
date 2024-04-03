@@ -34,6 +34,7 @@ services:
 
   pypiserver-authenticated:
     image: pypiserver/pypiserver:v1.5.1
+    restart: always
     networks:
       - no-internet
     volumes:
