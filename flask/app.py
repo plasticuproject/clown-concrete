@@ -144,6 +144,7 @@ def calculate(structure: str) -> Response:
                   'round_slab', 'round_column', 'steps', 'curbs_and_gutters')
     units_dict = {'ft': 'feet', 'yd': 'yards', 'm': 'meters'}
     flash_text_error = 'Please enter numerical measurments only.'
+    calculation_error = 'Something went wrong, could not calculate volume.'
 
     if structure not in structures:
         return redirect(url_for('index'))
@@ -215,5 +216,12 @@ def calculate(structure: str) -> Response:
                 length=float(request.form['length']),
                 units=units)
 
+        try:
+            _ = float(value)
+        except ValueError:
+            flash(calculation_error)
+            return redirect(url_for(structure))
+
         flash(f'Requires {value} cubic {units_dict[units]} of concrete.')
+
     return redirect(url_for(structure))
