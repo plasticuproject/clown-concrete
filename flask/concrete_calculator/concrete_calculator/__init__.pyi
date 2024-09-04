@@ -1,37 +1,53 @@
-from typing import Union, Optional
+"""__init__.pyi"""
+from __future__ import annotations
 from dataclasses import dataclass
 from abc import ABC, abstractmethod
 
-class ConcreteStructureData:
-    diameter: Optional[Union[float, int]]
-    depth: Optional[Union[float, int]]
-    length: Optional[Union[float, int]]
-    width: Optional[Union[float, int]]
 
-    def __init__(self, diameter: Optional[Union[float, int]] = None,
-                 depth: Optional[Union[float, int]] = None,
-                 length: Optional[Union[float, int]] = None,
-                 width: Optional[Union[float, int]] = None) -> None: ...
+@dataclass
+class ConcreteStructureData:
+    diameter: float | int | None
+    depth: float | int | None
+    length: float | int | None
+    width: float | int | None
+
+    def __init__(self,
+                 diameter: float | int | None = None,
+                 depth: float | int | None = None,
+                 length: float | int | None = None,
+                 width: float | int | None = None) -> None:
+        ...
 
 
 class ConcreteCalculator(ABC):
-    def __init__(self, unit_converter: 'UnitConverter') -> None: ...
+
+    def __init__(self, unit_converter: "UnitConverter") -> None:
+        ...
 
     @abstractmethod
-    def calculate_volume(self, data: ConcreteStructureData,
-                         units: str = 'ft') -> Union[float, int]: ...
+    def calculate_volume(self,
+                         data: ConcreteStructureData,
+                         units: str = "ft") -> float | int:
+        ...
 
 
 class RoundSlabConcreteCalculator(ConcreteCalculator):
-    def calculate_volume(self, data: ConcreteStructureData,
-                         units: str = 'ft') -> Union[float, int]: ...
+
+    def calculate_volume(self,
+                         data: ConcreteStructureData,
+                         units: str = "ft") -> float | int:
+        ...
 
 
 class SquareSlabConcreteCalculator(ConcreteCalculator):
-    def calculate_volume(self, data: ConcreteStructureData,
-                         units: str = 'ft') -> Union[float, int]: ...
+
+    def calculate_volume(self,
+                         data: ConcreteStructureData,
+                         units: str = "ft") -> float | int:
+        ...
 
 
 class UnitConverter:
-    def convert(self, value: Union[float, int],
-                units: str) -> Union[float, int]: ...
+
+    def convert(self, value: float | int, units: str) -> float | int:
+        ...

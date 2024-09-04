@@ -1,9 +1,8 @@
-"calculator.py"
-
+"__init__.py"
+from __future__ import annotations
 from dataclasses import dataclass
 from math import pi
 from abc import ABC, abstractmethod
-from typing import Union, Optional
 # pylint: disable=too-few-public-methods
 
 
@@ -12,10 +11,10 @@ class ConcreteStructureData:
     """
     A data class for containing concrete slab measurements in feet.
     """
-    diameter: Optional[Union[float, int]] = None
-    depth: Optional[Union[float, int]] = None
-    length: Optional[Union[float, int]] = None
-    width: Optional[Union[float, int]] = None
+    diameter: float | int | None = None
+    depth: float | int | None = None
+    length: float | int | None = None
+    width: float | int | None = None
 
 
 class ConcreteCalculator(ABC):
@@ -26,7 +25,7 @@ class ConcreteCalculator(ABC):
     for different types of structures.
     """
 
-    def __init__(self, unit_converter: 'UnitConverter') -> None:
+    def __init__(self, unit_converter: "UnitConverter") -> None:
         """
         Initialize a new concrete calculator.
 
@@ -39,7 +38,7 @@ class ConcreteCalculator(ABC):
     @abstractmethod
     def calculate_volume(self,
                          data: ConcreteStructureData,
-                         units: str = 'ft') -> Union[float, int]:
+                         units: str = "ft") -> float | int:
         """
         Calculate the volume of concrete needed for a structure.
 
@@ -64,7 +63,7 @@ class RoundSlabConcreteCalculator(ConcreteCalculator):
 
     def calculate_volume(self,
                          data: ConcreteStructureData,
-                         units: str = 'ft') -> Union[float, int]:
+                         units: str = "ft") -> float | int:
         """
         Calculate the volume of concrete needed for a round slab.
 
@@ -118,7 +117,7 @@ class SquareSlabConcreteCalculator(ConcreteCalculator):
 
     def calculate_volume(self,
                          data: ConcreteStructureData,
-                         units: str = 'ft') -> Union[float, int]:
+                         units: str = "ft") -> float | int:
         """
         Calculate the volume of concrete needed for a square slab.
 
@@ -167,13 +166,12 @@ class UnitConverter:
     """
 
     UNIT_CONVERSION = {
-        'ft': 1.0,
-        'yd': 1 / 27,
-        'm': 0.0283,
+        "ft": 1.0,
+        "yd": 1 / 27,
+        "m": 0.0283,
     }
 
-    def convert(self, value: Union[float, int],
-                units: str) -> Union[float, int]:
+    def convert(self, value: float | int, units: str) -> float | int:
         """
         Convert a value from one unit of measurement to another.
 

@@ -1,6 +1,5 @@
 "__init__.py"
-
-from typing import Union
+from __future__ import annotations
 from .concrete import (UnitConverter, ConcreteStructureData)
 from .concrete import (RoundSlabConcreteCalculator)
 from .concrete import (SquareSlabConcreteCalculator)
@@ -24,19 +23,19 @@ class Calculator:
 
     def _square_calculation(self,
                             *,
-                            length: Union[float, int],
-                            width: Union[float, int],
-                            depth: Union[float, int],
-                            units: str = "ft") -> Union[float, int]:
+                            length: float | int,
+                            width: float | int,
+                            depth: float | int,
+                            units: str = "ft") -> float | int:
         """
         Calculate the volume of concrete needed for a square structure.
 
         All method parameter dimensional measuments provided in feet units.
 
         Args:
-            length (Union[float, int]): The length of the square structure.
-            width (Union[float, int]): The width of the square structure.
-            depth (Union[float, int]): The depth of the square structure.
+            length (float | int): The length of the square structure.
+            width (float | int): The width of the square structure.
+            depth (float | int): The depth of the square structure.
             units (str): The units of measurement to use for the
                 output. Default is "ft".
 
@@ -54,17 +53,17 @@ class Calculator:
 
     def _round_calculation(self,
                            *,
-                           diameter: Union[float, int],
-                           depth: Union[float, int],
-                           units: str = "ft") -> Union[float, int]:
+                           diameter: float | int,
+                           depth: float | int,
+                           units: str = "ft") -> float | int:
         """
         Calculate the volume of concrete needed for a round structure.
 
         All method parameter dimensional measuments provided in feet units.
 
         Args:
-            diameter (Union[float, int]): The diameter of the round structure.
-            depth (Union[float, int]): The depth of the round structure.
+            diameter (float | int): The diameter of the round structure.
+            depth (float | int): The depth of the round structure.
             units (str): The units of measurement to use for the
                 output. Default is "ft".
 
@@ -80,9 +79,9 @@ class Calculator:
 
     def square_slab(self,
                     *,
-                    length: Union[float, int],
-                    width: Union[float, int],
-                    depth: Union[float, int],
+                    length: float | int,
+                    width: float | int,
+                    depth: float | int,
                     units: str = "ft") -> str:
         """
         Calculate the volume of concrete needed for a square slab.
@@ -90,9 +89,9 @@ class Calculator:
         All method parameter dimensional measuments provided in feet units.
 
         Args:
-            length (Union[float, int]): The length of the square slab.
-            width (Union[float, int]): The width of the square slab.
-            depth (Union[float, int]): The depth of the square slab.
+            length (float | int): The length of the square slab.
+            width (float | int): The width of the square slab.
+            depth (float | int): The depth of the square slab.
             units (str): The units of measurement to use for the
                 output. Default is "ft".
 
@@ -124,9 +123,9 @@ class Calculator:
 
     def wall(self,
              *,
-             length: Union[float, int],
-             thickness: Union[float, int],
-             height: Union[float, int],
+             length: float | int,
+             thickness: float | int,
+             height: float | int,
              units: str = "ft") -> str:
         """
         Calculate the volume of concrete needed for a wall.
@@ -134,9 +133,9 @@ class Calculator:
         All method parameter dimensional measuments provided in feet units.
 
         Args:
-            length (Union[float, int]): The length of the wall.
-            thickness (Union[float, int]): The thickness of the wall.
-            height (Union[float, int]): The height of the wall.
+            length (float | int): The length of the wall.
+            thickness (float | int): The thickness of the wall.
+            height (float | int): The height of the wall.
             units (str): The units of measurement to use for the
                 output. Default is "ft".
 
@@ -168,9 +167,9 @@ class Calculator:
 
     def footer(self,
                *,
-               length: Union[float, int],
-               width: Union[float, int],
-               depth: Union[float, int],
+               length: float | int,
+               width: float | int,
+               depth: float | int,
                units: str = "ft") -> str:
         """
         Calculate the volume of concrete needed for a footer.
@@ -178,9 +177,9 @@ class Calculator:
         All method parameter dimensional measuments provided in feet units.
 
         Args:
-            length (Union[float, int]): The length of the footer.
-            width (Union[float, int]): The width of the footer.
-            depth (Union[float, int]): The depth of the footer.
+            length (float | int): The length of the footer.
+            width (float | int): The width of the footer.
+            depth (float | int): The depth of the footer.
             units (str): The units of measurement to use for the
                 output. Default is "ft".
 
@@ -212,9 +211,9 @@ class Calculator:
 
     def square_column(self,
                       *,
-                      length: Union[float, int],
-                      width: Union[float, int],
-                      height: Union[float, int],
+                      length: float | int,
+                      width: float | int,
+                      height: float | int,
                       units: str = "ft") -> str:
         """
         Calculate the volume of concrete needed for a square column.
@@ -222,9 +221,9 @@ class Calculator:
         All method parameter dimensional measuments provided in feet units.
 
         Args:
-            length (Union[float, int]): The length of the square column.
-            width (Union[float, int]): The width of the square column.
-            height (Union[float, int]): The height of the square column.
+            length (float | int): The length of the square column.
+            width (float | int): The width of the square column.
+            height (float | int): The height of the square column.
             units (str): The units of measurement to use for the
                 output. Default is "ft".
 
@@ -256,8 +255,8 @@ class Calculator:
 
     def round_slab(self,
                    *,
-                   diameter: Union[float, int],
-                   depth: Union[float, int],
+                   diameter: float | int,
+                   depth: float | int,
                    units: str = "ft") -> str:
         """
         Calculate the volume of concrete needed for a round slab.
@@ -265,8 +264,8 @@ class Calculator:
         All method parameter dimensional measuments provided in feet units.
 
         Args:
-            diameter (Union[float, int]): The diameter of the round slab.
-            depth (Union[float, int]): The depth of the round slab.
+            diameter (float | int): The diameter of the round slab.
+            depth (float | int): The depth of the round slab.
             units (str): The units of measurement to use for the
                 output. Default is "ft".
 
@@ -297,8 +296,8 @@ class Calculator:
 
     def round_column(self,
                      *,
-                     diameter: Union[float, int],
-                     depth: Union[float, int],
+                     diameter: float | int,
+                     depth: float | int,
                      units: str = "ft") -> str:
         """
         Calculate the volume of concrete needed for a round column.
@@ -306,8 +305,8 @@ class Calculator:
         All method parameter dimensional measuments provided in feet units.
 
         Args:
-            diameter (Union[float, int]): The diameter of the round column.
-            depth (Union[float, int]): The depth of the round column.
+            diameter (float | int): The diameter of the round column.
+            depth (float | int): The depth of the round column.
             units (str): The units of measurement to use for the
                 output. Default is "ft".
 
@@ -338,10 +337,10 @@ class Calculator:
 
     def steps(self,
               *,
-              platform_depth: Union[float, int],
-              run: Union[float, int],
-              rise: Union[float, int],
-              width: Union[float, int],
+              platform_depth: float | int,
+              run: float | int,
+              rise: float | int,
+              width: float | int,
               steps: int,
               units: str = "ft") -> str:
         """
@@ -350,10 +349,10 @@ class Calculator:
         All method parameter dimensional measuments provided in feet units.
 
         Args:
-            platform_depth (Union[float, int]): The depth of the platform step.
-            run (Union[float, int]): The the run depth of the step.
-            rise (Union[float, int]): The rise height of the step.
-            width (Union[float, int]): The width of the step.
+            platform_depth (float | int): The depth of the platform step.
+            run (float | int): The the run depth of the step.
+            rise (float | int): The rise height of the step.
+            width (float | int): The width of the step.
             steps (int): The number of steps, including the platform step.
             units (str): The units of measurement to use for the
                 output. Default is "ft".
@@ -382,7 +381,7 @@ class Calculator:
                                                    width=width,
                                                    depth=rise,
                                                    units=units)
-        step_volumes: Union[float, int] = 0
+        step_volumes: float | int = 0
         for i in range(1, steps):
             step_volumes += self._square_calculation(length=run,
                                                      width=width,
@@ -394,11 +393,11 @@ class Calculator:
 
     def curbs_and_gutters(self,
                           *,
-                          curb_depth: Union[float, int],
-                          curb_height: Union[float, int],
-                          gutter_width: Union[float, int],
-                          flag_thickness: Union[float, int],
-                          length: Union[float, int],
+                          curb_depth: float | int,
+                          curb_height: float | int,
+                          gutter_width: float | int,
+                          flag_thickness: float | int,
+                          length: float | int,
                           units: str = "ft") -> str:
         """
         Calculate the volume of concrete needed for curbs and gutters.
@@ -406,11 +405,11 @@ class Calculator:
         All method parameter dimensional measuments provided in feet units.
 
         Args:
-            curb_depth (Union[float, int]): The depth of the curbs.
-            curb_height (Union[float, int]): The height of the curbs.
-            gutter_width (Union[float, int]): The width of the gutters.
-            flag_thickness (Union[float, int]): The thickness of the flag.
-            length (Union[float, int]): Total length of the curbs and gutters.
+            curb_depth (float | int): The depth of the curbs.
+            curb_height (float | int): The height of the curbs.
+            gutter_width (float | int): The width of the gutters.
+            flag_thickness (float | int): The thickness of the flag.
+            length (float | int): Total length of the curbs and gutters.
             units (str): The units of measurement to use for the
                 output. Default is "ft".
 

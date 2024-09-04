@@ -1,9 +1,8 @@
-"calculator.py"
-
+"concrete.py"
+from __future__ import annotations
 from dataclasses import dataclass
 from math import pi
 from abc import ABC, abstractmethod
-from typing import Union, Optional
 # pylint: disable=too-few-public-methods
 
 
@@ -12,10 +11,10 @@ class ConcreteStructureData:
     """
     A data class for containing concrete slab measurements in feet.
     """
-    diameter: Optional[Union[float, int]] = None
-    depth: Optional[Union[float, int]] = None
-    length: Optional[Union[float, int]] = None
-    width: Optional[Union[float, int]] = None
+    diameter: float | int | None = None
+    depth: float | int | None = None
+    length: float | int | None = None
+    width: float | int | None = None
 
 
 class ConcreteCalculator(ABC):
@@ -39,7 +38,7 @@ class ConcreteCalculator(ABC):
     @abstractmethod
     def calculate_volume(self,
                          data: ConcreteStructureData,
-                         units: str = 'ft') -> Union[float, int]:
+                         units: str = 'ft') -> float | int:
         """
         Calculate the volume of concrete needed for a structure.
 
@@ -49,7 +48,7 @@ class ConcreteCalculator(ABC):
             units (str): The desired units of measurement for the volume.
 
         Returns:
-            Union[float, int]: The volume of concrete needed.
+            float | int: The volume of concrete needed.
         """
         raise NotImplementedError()
 
@@ -64,19 +63,19 @@ class RoundSlabConcreteCalculator(ConcreteCalculator):
 
     def calculate_volume(self,
                          data: ConcreteStructureData,
-                         units: str = 'ft') -> Union[float, int]:
+                         units: str = 'ft') -> float | int:
         """
         Calculate the volume of concrete needed for a round slab.
 
         Args:
-            data (ConcreteStructureData(diameter = Union[float, int],
-                                        depth = Union[float, int])):
+            data (ConcreteStructureData(diameter = float | int,
+                                        depth = float | int)):
                 Data class containing the diameter and depth of the
                 slab in feet.
             units (str): The desired units of measurement for the volume.
 
         Returns:
-            Union[float, int]: The volume of concrete needed.
+            float | int: The volume of concrete needed.
 
         Usage:
         >>> unit_converter = UnitConverter()
@@ -118,20 +117,20 @@ class SquareSlabConcreteCalculator(ConcreteCalculator):
 
     def calculate_volume(self,
                          data: ConcreteStructureData,
-                         units: str = 'ft') -> Union[float, int]:
+                         units: str = 'ft') -> float | int:
         """
         Calculate the volume of concrete needed for a square slab.
 
         Args:
-            data (ConcreteStructureData(width = Union[float, int],
-                                        length = Union[float, int],
-                                        depth = Union[float, int])):
+            data (ConcreteStructureData(width = float | int,
+                                        length = float | int,
+                                        depth = float | int)):
                 Data class containing the width, length, and depth of the
                 slab in feet.
             units (str): The desired units of measurement for the volume.
 
         Returns:
-            Union[float, int]: The volume of concrete needed.
+            float | int: The volume of concrete needed.
 
         Usage:
             >>> unit_converter = UnitConverter()
@@ -172,17 +171,16 @@ class UnitConverter:
         'm': 0.0283,
     }
 
-    def convert(self, value: Union[float, int],
-                units: str) -> Union[float, int]:
+    def convert(self, value: float | int, units: str) -> float | int:
         """
         Convert a value from one unit of measurement to another.
 
         Args:
-            value (Union[float, int]): The value to convert.
+            value (float | int): The value to convert.
             units (str): The current units of measurement.
 
         Returns:
-            Union[float, int]: The converted value.
+            float | int: The converted value.
 
         Usage:
         >>> unit_converter = UnitConverter()

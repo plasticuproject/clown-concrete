@@ -8,7 +8,7 @@ readme = "README.md"
 packages = [{include = "calculator_wrapper"}]
 
 [tool.poetry.dependencies]
-python = "^3.8"
+python = "^3.11"
 
 [build-system]
 requires = ["poetry-core"]

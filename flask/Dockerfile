@@ -1,4 +1,4 @@
-FROM python:3.9.2-alpine
+FROM python:3.11.9-alpine
 
 # upgrade pip
 RUN pip install --upgrade pip
@@ -40,4 +40,4 @@ USER root
 COPY configs/pip.conf /etc/pip.conf
 RUN chown root:root /etc/pip.conf
 
-CMD ["supervisord"]
+CMD ["/usr/bin/supervisord", "-c", "/home/app/supervisord.conf"]
