@@ -29,6 +29,16 @@ systemctl start crond
 systemctl enable crond
 
 
+# Install certbot
+dnf -y install python3 augeas-libs
+dnf -y remove certbot
+python3 -m venv /opt/certbot/
+/opt/certbot/bin/pip install --upgrade pip
+/opt/certbot/bin/pip install certbot
+ln -s /opt/certbot/bin/certbot /usr/bin/certbot
+certbot certonly --standalone -m joey@clownconcrete.com --agree-tos -d clownconcrete.plasticuproject.com
+
+
 # Set up cron job to destroy and rebuild entire application infra every hour on the hour.
 if crontab -l | grep -q `tear_down`; then
     echo "Cron job already exists."
@@ -36,6 +46,7 @@ else
     crontab -l > "$CRONFILE" 2>/dev/null || true
     {
         echo "0 * * * * cd /home/ec2-user/clown-concrete && ./tear_down.sh  && docker-compose up"
+	echo "0 0,12 * * * /opt/certbot/bin/python -c 'import random; import time; time.sleep(random.random() * 3600)' && sudo certbot renew -q"
     } >> "$CRONFILE"
     crontab "$CRONFILE"
     rm -f "$CRONFILE"
