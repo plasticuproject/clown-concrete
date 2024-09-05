@@ -48,7 +48,7 @@ class ConcreteCalculator(ABC):
             units (str): The desired units of measurement for the volume.
 
         Returns:
-            Union[float, int]: The volume of concrete needed.
+            float | int: The volume of concrete needed.
         """
         raise NotImplementedError()
 
@@ -68,14 +68,14 @@ class RoundSlabConcreteCalculator(ConcreteCalculator):
         Calculate the volume of concrete needed for a round slab.
 
         Args:
-            data (ConcreteStructureData(diameter = Union[float, int],
-                                        depth = Union[float, int])):
+            data (ConcreteStructureData(diameter = float | int,
+                                        depth = float | int)):
                 Data class containing the diameter and depth of the
                 slab in feet.
             units (str): The desired units of measurement for the volume.
 
         Returns:
-            Union[float, int]: The volume of concrete needed.
+            float | int: The volume of concrete needed.
 
         Usage:
         >>> unit_converter = UnitConverter()
@@ -122,15 +122,15 @@ class SquareSlabConcreteCalculator(ConcreteCalculator):
         Calculate the volume of concrete needed for a square slab.
 
         Args:
-            data (ConcreteStructureData(width = Union[float, int],
-                                        length = Union[float, int],
-                                        depth = Union[float, int])):
+            data (ConcreteStructureData(width = float | int,
+                                        length = float | int,
+                                        depth = float | int)):
                 Data class containing the width, length, and depth of the
                 slab in feet.
             units (str): The desired units of measurement for the volume.
 
         Returns:
-            Union[float, int]: The volume of concrete needed.
+            float | int: The volume of concrete needed.
 
         Usage:
             >>> unit_converter = UnitConverter()
@@ -176,11 +176,11 @@ class UnitConverter:
         Convert a value from one unit of measurement to another.
 
         Args:
-            value (Union[float, int]): The value to convert.
+            value (float | int): The value to convert.
             units (str): The current units of measurement.
 
         Returns:
-            Union[float, int]: The converted value.
+            float | int: The converted value.
 
         Usage:
         >>> unit_converter = UnitConverter()
