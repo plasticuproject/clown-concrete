@@ -5,7 +5,8 @@ set -e
 
 # Define file names.
 CRONFILE="/tmp/cronjobs.txt"
-APP_DIR="/home/ec2-user/"
+APP_DIR="/home/ec2-user"
+TEAR_DOWN_SCRIPT="$APP_DIR/clown-concrete/tear_down.sh"
 
 # Ensure the script is run as root
 if [ "$(id -u)" -ne 0 ]; then
@@ -37,6 +38,8 @@ python3 -m venv /opt/certbot/
 /opt/certbot/bin/pip install certbot
 ln -s /opt/certbot/bin/certbot /usr/bin/certbot
 certbot certonly --standalone -m joey@clownconcrete.com --agree-tos -d clownconcrete.plasticuproject.com
+echo "cp /etc/letsencrypt/live/clownconcrete.plasticuproject.com/privkey.pem /home/ec2-user/clown-concrete/nginx/certs/private.key" >> "$TEAR_DOWN_SCRIPT"
+echo "cp /etc/letsencrypt/live/clownconcrete.plasticuproject.com/cert.pem /home/ec2-user/clown-concrete/nginx/certs/publickey.crt" >> "$TEAR_DOWN_SCRIPT"
 
 
 # Set up cron job to destroy and rebuild entire application infra every hour on the hour.

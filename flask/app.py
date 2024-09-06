@@ -26,6 +26,7 @@ SELF = "'self'"
 csp = {
     "default-src": SELF,
     "img-src": [SELF, "data:"],
+    "media-src": [SELF, "data:"],
     "script-src": [
         SELF,
         "cdn.jsdelivr.net",
