@@ -56,7 +56,7 @@ else
 fi
 
 # Start application infra.
-cd "$APP_DIR" || exit
-docker-compose up -d || true
+cd "$APP_DIR"
+docker-compose up -d
 
 echo "Installation complete."
