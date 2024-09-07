@@ -1,5 +1,0 @@
-openssl req -x509 -nodes -days 36552 -newkey rsa:2048 -keyout private.key -out publickey.crt
-
-#openssl s_client -showcerts -connect localhost:42425 </dev/null 2>/dev/null | openssl x509 -outform PEM > ../fakepypi.crt
-
-
