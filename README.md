@@ -24,6 +24,6 @@ To stop and delete the containers and images run:
 
 ![CC](screenshots/cc.png)
 ![CALC](screenshots/calc.png)
-![MODAL](screenshots/MODAL.png)
+![MODAL](screenshots/modal.png)
 ![ABOUT](screenshots/about.png)
 
