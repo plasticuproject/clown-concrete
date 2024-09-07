@@ -6,7 +6,7 @@ This challenge demonstrates the risks associated with software supply-chains, us
 
 ## Prerequisites
 
--   **Docker + Docker Compose **: Ensure that Docker + Docker Compose are installed on your machine. You can download and install Docker from [here](https://www.docker.com/get-started).
+-   **Docker + Docker Compose**: Ensure that Docker + Docker Compose are installed on your machine. You can download and install Docker from [here](https://www.docker.com/get-started).
 
 ## Getting Started
 
